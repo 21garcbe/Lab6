@@ -11,9 +11,10 @@ Each user has a username, real name, password and security level
 users = {
 
 # Create a dictionary for each user with their username, password, and security level
-    'Bgarcia15': {'name': 'Ben', 'password': 'pass1', 'security_level': '1'},
-    'Jdoe': {'name': 'John', 'password': 'pass2', 'security_level': '1'},
-    'Guest': {'name': 'Guest', 'password': 'guest', 'security_level': '0'}
+    'Bgarcia15': {'name': 'Ben', 'password': 'pass1', 'security_level': 'Level 1'},
+    'Jdoe': {'name': 'John', 'password': 'pass2', 'security_level': 'Level 1'},
+    'Guest': {'name': 'Guest', 'password': 'guest', 'security_level': 'guest'},
+    'TitusAndronicus': {'name': 'Titus', 'password': 'shakespeare#1', 'security_level': 'Level 1'}
 
 }
 
@@ -28,7 +29,7 @@ if username in users:
         password = input("Password: ")
         # if password correct print welcome and security level
         if password == users[username]['password']:
-            print("Login successful. Welcome " + username + "!" + " Your security level is " + str(users[username]['security_level']))
+            print("Login successful. Welcome " + users[username]['name'] + "!" + " You have " + str(users[username]['security_level']) + " security access.")
             break
         else:
             #if password is incorrect increment password_attempts, print try again and remainaing attempts
