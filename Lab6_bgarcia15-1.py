@@ -3,18 +3,18 @@ Lab 6 - Dictionaries
 Author: Ben Garcia
 
 Program that simulates a login system using a dictionary
-Dictionary has 3 known users and a guest
+Dictionary has 4 key value pairs, 3 known users and a guest
 Each user has a username, real name, password and security level
 
 '''
 # Create a dictionary of users to store user information
 users = {
 
-# Create a dictionary for each user with key = username, value = another dictionary with keys name, password, and security_level
-    'Bgarcia15': {'name': 'Ben', 'password': 'pass1', 'security_level': 'Level 1'},
-    'Jdoe': {'name': 'John', 'password': 'pass2', 'security_level': 'Level 1'},
-    'Guest': {'name': 'Guest', 'password': 'guest', 'security_level': 'guest'},
-    'TitusAndronicus': {'name': 'Titus', 'password': 'shakespeare#1', 'security_level': 'Level 1'}
+# Create a key value pair for each user, with username key and password value
+    'Bgarcia15': 'pass1',
+    'Jdoe': 'pass2',
+    'Guest': 'guest',
+    'Titus': 'shakespeare#1'
 }
 
 print("Welcome to the login system. Please enter your username and password.")
@@ -29,8 +29,15 @@ if username in users:
     while password_attempts < 3:
         password = input("Password: ")
         # if password correct print welcome and security level
-        if password == users[username]['password']:
-            print("Login successful. Welcome " + users[username]['name'] + "!" + " You have " + str(users[username]['security_level']) + " security access.")
+        if password == users[username]:
+            print("Login successful. Welcome " + username + "!")
+            
+        #Add security level for each user, if guest print guest access, else print level 1 access
+            if username == 'Guest':
+                print("You have guest access.")
+            else:
+                print("You have level 1 access.")
+
             break
         else:
             #if password is incorrect increment password_attempts, print try again and remainaing attempts
